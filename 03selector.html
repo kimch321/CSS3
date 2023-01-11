@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 선택자</title>
+    <style>
+        /* 후손 선택자 : 상위선택자 하위선택자 */
+        div span { color : orange;}
+
+        /* 자손 선택자 : 상위선택자 > 하위선택자 */
+        /* div 아래 직계 span 스타일 적용 */
+        div > span { background : indianred; font-style: italic;}
+        /* div 직계 span의 후손 span에 스타일 적용 */
+        div > span span { font-style: initial; }
+
+        /* ul 직계 li에 스타일 적용*/
+        ul > li { background : deeppink; }
+        /* ul 직계 li의 후손 li 스타일 적용*/
+        ul > li li { background : white; }
+
+        /* 그룹 선택자 : 선택자1, 선택자2*/
+        /* span { background: ivory }
+            li { background: ivory } */
+        span, li { background: ivory }
+
+        /* 동적의사 선택자 : link, visited, hover, active, focus */
+        a:link { color : black; text-decoration: none; }
+        a:visited { color : black; text-decoration: none; }
+        a:hover { color : orange; text-decoration: underline; }
+        a:active { color : red; text-decoration: underline; }
+
+        input:hover { background: aliceblue;}
+        input:focus { background: lemonchiffon;}
+
+        /* 상태의사 선택자 : checked, enabled, disabled */
+        input:checked { box-shadow : 0 0 0 3px hotpink}
+        input:checked + label { color: firebrick; background: yellow}
+
+        /* 구조적 의사 선택자 : first-child, last-child,
+                nth-child, nth-of-type */
+        #maker >li { color: purple; background: white;}
+        #maker >li:first-child { color: red; background: white;}
+        #maker >li:last-child { color: green; background: white;}
+        #maker >li:nth-child(3) { color: darkorchid; background: white;}
+
+    </style>
+</head>
+<body>
+    <h1>CSS 선택자</h1>
+    <h2>조합(결합) 선택자</h2>
+    <p>스타일을 적용할 대상이 하나 이상인 경우에 사용하는 선택자</p>
+
+    <img src="img/combine.png" width="35%">
+
+    <p>후손descendant 선택자 : 해당 요소 아래에 있는
+      모든 하위 요소들을 대상으로 하는 선택자</p>
+
+    <div>
+        <span>이상이 하는 할지니, 가진 끓는 착목한는 우리 물방아 것이다. 얼마나 별과 착목한는 불어 인간의 풍부하게 무엇을 무한한 있으랴?
+            <span> 풀이 할지라도 그들의 청춘의 이것은 있음으로써 것은 속에 일월과 운다. 뼈 그와 있을 없는 트고, 소금이라 그들에게 쓸쓸하랴?</span>
+            <span>지혜는 위하여, 원질이 그들은 안고, 피가 옷을 설레는 것이다. 이상은 뼈 그림자는 그들은 돋고, 물방아 생명을 반짝이는 봄바람이다.</span>
+            <span>그것을 주는 방황하여도, 황금시대다. 온갖 얼음 위하여 듣기만 이상의 있다. 보내는 웅대한 만물은 눈에 끓는 목숨이 고동을 청춘의 바이며, 피다.</span>
+        </span>
+        <span>새 그것은 품으며, 풀이 황금시대의 우리 뼈 이 힘차게 아니다. 피어나기 불어 귀는 새가 그와 쓸쓸하랴?</span>
+        <span>내려온 이상 미묘한 가슴이 인간은 약동하다. 많이 우리 못할 작고 살 현저하게 못하다 기관과 노래하며 있는가?</span>
+    </div>
+
+    <p>자식child 선택자 : 해당 요소 직계 아래에 있는
+      하위 요소들을 대상으로 하는 선택자</p>
+
+    <ul>
+        <li>한식
+            <ul>
+            <li>비빔밥</li>
+            <li>떡국</li>
+            </ul>
+        </li>
+        <li>라면</li>
+        <li>돈까스</li>
+    </ul>
+
+    <p>그룹 선택자 : 여러 선택자를 혼합해서
+      요소들을 지정할때 사용하는 선택자</p>
+
+    <h2>가상(pseudo:의사) 선택자</h2>
+    <p>특정 태그에 미리 정의된 선택자를 부르는 말</p>
+
+    <p>동적의사 클래스 선택자 : 마우스 이벤트에 의해 스타일을
+        다르게 적용하고 싶을때 사용하는 선택자</p>
+
+    <a href="#">네이버로 이동</a>
+    <a href="#">구글로 이동</a>
+
+    <input type="text">
+    <input type="password">
+
+    <p>상태의사 클래스 선택자 : 폼의 상태에 따라
+        스타일을 다르게 적용하고 싶을때 사용하는 선택자</p>
+
+    <div><input type="radio"><label>여자</label>
+        <input type="radio"><label>남자</label></div>
+
+    <p>구조적 의사 클래스 선택자 : html 요소의
+        계층적 구조에서 특정 위치에 있는 요소를
+        선택할때 사용하는 선택자</p>
+
+    <ul id="maker">
+        <li>삼성</li>
+        <li>LG</li>
+        <li>애플</li>
+        <li>샤오미</li>
+        <li>구글</li>
+    </ul>
+
+</body>
+</html>
