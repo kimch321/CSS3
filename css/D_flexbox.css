@@ -1,12 +1,8 @@
 .container {
+    padding-top: 100px;
     background: beige;
     height: 100vw;
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    /*flex-flow: column nowrap;*/
-    justify-content: space-between; /* main axis */
-
 }
 
 .item{
@@ -15,14 +11,15 @@
     border: 1px solid black;
 }
 
-.item1 {background:#e57373;}
-.item2 {background:#f06292;}
-.item3 {background:#ba68c8;}
-.item4 {background:#9575cd;}
-.item5 {background:#7986cb;}
-.item6 {background:#64b5f6;}
-.item7 {background:#4fc3f7;}
-.item8 {background:#4dd0e1;}
-.item9 {background:#4db6ac;}
-.item10 {background:#81c784;}
-
+.item1 {background:#e57373;
+        flex-grow:2;
+        flex-shrink: 2;
+}
+.item2 {background:#f06292;
+        flex-grow:1;
+        flex-shrink: 1;
+}
+.item3 {background:#ba68c8;
+        flex-grow:1;
+        flex-shrink: 2;
+}

@@ -9,7 +9,7 @@ div{
     background : yellow;
     left:20px;
     top:20px;
-    position: static;
+    position: relative;
 }
 
 .box {
