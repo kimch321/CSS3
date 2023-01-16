@@ -43,9 +43,12 @@ header li {
     display: inline-block;
 }
 nav {
+    background: grey;
 }
 nav form{
-    margin : 8px 24px;
+    margin-left: 24px;
+    padding-top:8px;
+    padding-bottom:8px;
 }
 #search__select {
     width:160px;
