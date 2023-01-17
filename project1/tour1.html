@@ -19,7 +19,6 @@
         }
         /*header의 크기 지정 및 배경색 설정*/
         header {
-            border: 1px solid blue;
             height:100px;
             background : #3f51b5;
         }
@@ -39,7 +38,6 @@
         }
         /*nav 테두리 만들기, 배경색*/
         nav {
-            border : 1px solid red;
             background : #303f9f;
         }
         /*nav 안 ul태그안 li태그의 강조점 없에기, 글자색 하얀색*/
@@ -79,6 +77,9 @@
         }
         .bigpic__2 {
             background-image: url("img/Slide/img2.jpg");
+            background-repeat: no-repeat;
+            background-color: lightpink;
+            background-size: cover;
             display: inline-block;
             width:1400px;
             height:350px;
@@ -94,10 +95,15 @@
         }
         .smallpic{
             background-image: url("img/Contents/shortcut.jpg");
-            display: inline-block;
+            background-repeat: no-repeat;
+            background-color: lightpink;
+            background-size: cover;
             text-align: center;
             width:100%;
-            height:100%;
+            height:200px;
+            line-height: 200px;
+        }
+        .smallpic a {
         }
         .flexbox {
             display: flex;
@@ -207,7 +213,7 @@
                     </ul>
                 </div>
             </section>
-            <section class="smallpic"></section>
+            <section class="smallpic">
                 <div>
                     <a href="#">바로가기</a>
                 </div>
