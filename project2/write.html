@@ -2,36 +2,54 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>새글쓰기</title>
+    <title>write</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/project2.css">
     <style>
-        hr {
-            height: 1px;
-            background-color: black;
-            clear: left;
+        #writefrm { width: 560px; }
     </style>
 </head>
 <body>
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="join.html">회원가입</a></li>
-        <li><a href="login.html">로그인</a></li>
-        <li><a href="list.html">게시판</a></li>
-        <li><a href="myinfo.html">회원정보</a></li>
-    </ul>
-    <hr>
-</nav>
-  <h2>새글쓰기</h2>
-  <form name="write">
-      <table>
-          <tr><td><label for="title">제목</label></td><td><input type="text" name="title" id="title"></td></tr>
-          <tr><td><label for="uid">작성자</label></td><td><input type="text" name="uid" id="uid" value="zzyzzy" readonly></td></tr>
-          <tr><td><label for="contents">본문</label></td><td><textarea name="contents" id="contents" rows="7" cols="55"></textarea> </td></tr>
-          <tr><td colspan="2">
-              <button type="button">입력완료</button>
-              <button type="button">다시입력</button>
-          </td></tr>
-      </table>
-  </form>
+<div id="wrapper">
+    <header><h1>JSP 프로젝트 v1</h1></header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="join.html">회원가입</a></li>
+            <li><a href="login.html">로그인</a></li>
+            <li><a href="list.html">게시판</a></li>
+            <li><a href="myinfo.html">회원정보</a></li>
+        </ul>
+        <hr>
+    </nav>
+    <main>
+        <div id="main">
+            <h2>게시판 새글쓰기</h2>
+            <form name="write" id="writefrm">
+                <div><label for="title">제목</label>
+                    <input type="text" name="title" id="title"></div>
+
+                <div><label for="uid">작성자</label>
+                    <input type="text" name="uid" id="uid"
+                           value="siestageek" readonly></div>
+
+                <div><label for="contents" class="drgup">본문</label>
+                    <textarea name="contents" id="contents"
+                              rows="7" cols="55"></textarea></div>
+
+                <div><label></label>
+                    <button type="button">입력완료</button>
+                    <button type="reset">다시입력</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <hr>
+        <div class="copy">copyright &copy; 2023. zzyzzy. All Rights Reserved.</div>
+    </footer>
+</div>
 </body>
 </html>

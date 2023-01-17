@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>position layout</title>
+    <style>
+      /*너비 설정, 정중앙 배치, 테두리 표시*/
+      #container {
+        border : 3px solid black;
+        width: 950px; margin : 0 auto;
+      }
+      /*높이 지정, 테두리 표시*/
+      /*헤더 안의 ul, div를 적절히 배치하기 위해*/
+      /*position : relative 선언*/
+      header {
+        position: relative;
+        height: 100px;
+      }
+      /*글머리기호 제거, 여백/마진 0으로 설정*/
+      /*header의 위치를 기준으로 ul배치하기 위해 */
+      /*position: absolute 선언*/
+      header ul {
+        list-style: none; padding: 0; margin: 0;
+        position: absolute; top:15px; right: 40px;
+      }
+      /*리스트의 항목을 inline요소로 바꿈*/
+      header ul li {
+        display: inline-block;
+      }
+      /*li요소 끝에  |를 추가함*/
+      /*단, 마지막 li요소 끝에는 |를 추가하지 않음*/
+      header ul li:after{
+        content: ' |';
+      }
+      header ul li:last-child:after {
+        content: ' ';
+      }
+      /*header의 위치를 기준으로 div를 배치하기 위해*/
+      /*position : absolute 선언*/
+      header div {
+        position : absolute;
+        top: 61px;
+        left: 210px;
+      }
+      /*LOGO*/
+      header h1 {
+        font-size: 25px;
+        background: #f48fb1;
+        display : inline-block;
+        padding: 15px 50px;
+        margin-left: 35px;
+      }
+      /*nav에 배경색 추가*/
+      nav {
+        background: #90caf9;
+      }
+      nav form {
+        margin-top: 7px;
+        margin-bottom: 7px;
+        margin-left: 27px;
+        display: inline-block;
+      }
+      main {position:relative;}
+      /*aside, div를 나란히 배열*/
+      main aside { display:inline-block;
+      border: 3px solid black;
+      margin-left:25px;
+      margin-top:8px;}
+      main div { display:inline-block;
+        position:absolute;
+        height:248px;
+        width: 675px;
+        border: 3px solid black;
+        top: 8px;
+        left:250px;
+      }
+      /*ul에 강조점 제거 margin, padding 제거*/
+      aside ul { list-style-type:none;
+      width:210px;
+      padding:0;
+      margin:0;
+      }
+      /*패딩 추가, 글씨 사이즈 조절*/
+      aside li {
+        padding: 4px 10px;
+        font-size: 19px;
+      }
+      /*aside 안 li에 테두리 추가*/
+      aside li:nth-child(2) {border-top: 1px solid black;}
+      aside li:nth-child(3) {border-top: 1px solid black;}
+      aside li:nth-child(4) {border-top: 1px solid black;}
+      aside li:nth-child(5) {border-top: 1px solid black;}
+      aside li:nth-child(6) {border-top: 1px solid black;}
+      aside li:nth-child(7) {border-top: 1px solid black;}
+
+      .sectionclass {
+        position:relative;
+        height:270px;
+
+      }
+      .sectionclass p {position: absolute;
+        top:90px;
+        left: 180px;
+      }
+      .sectionclass ul{list-style-type:none;
+      }
+      #section2 {
+        height:180px;
+        border-bottom: 2px solid black;
+      }
+      #section2 h2{
+        margin:0;
+        font-size: 19px;
+        margin-left: 30px;
+      }
+      #section2 li {display: inline-block;
+        width: 100px;
+        height: 110px;
+        margin: 0 20px;
+      }
+      #topbox {position:relative}
+      #topbox ul {
+        list-style-type: none;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+        width: 100px;
+        height: 130px;
+        font-size:10px;
+      }
+      #topbox #topbox1 {
+        margin-left:55px;
+      }
+      #topbox #topbox2 {position:absolute;
+      left: 200px;}
+      #topbox #topbox3 {position:absolute;
+        left: 340px;}
+      #topbox h3{
+        margin:0;
+        margin-top:20px;
+      }
+      footer #bottombox{
+        text-align: center;
+      }
+      #smallbox {position:absolute;
+        bottom: 190px;
+        right:50px;
+        list-style-type: none;}
+      #smallbox li {display: inline-block;
+        width:35px;
+        height:35px;
+        text-align: center;
+        background: #e57373;
+      }
+    </style>
+</head>
+<body>
+  <div id="container">
+    <header>
+      <h1 id="logo">LOGO</h1>
+      <ul>
+        <li>contact</li>
+        <li>store locator</li>
+        <li>support</li>
+        <li>CART</li>
+      </ul>
+      <div><a href="#">Log in</a> or
+          <a href="#">Create Account</a></div>
+    </header>
+    <nav>
+      <form method="post" name="search">
+        <input type="text" name="search" id="search" size="39">
+        <select name="category">
+          <option>Category</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+        </select>
+        <button type="button">SEARCH</button>
+      </form>
+    </nav>
+    <main>
+      <ul id="smallbox">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+      <section class="sectionclass">
+        <aside>
+          <ul>
+            <li>All categories</li>
+            <li>Category1</li>
+            <li>Category2</li>
+            <li>Category3</li>
+            <li>Category4</li>
+            <li>Category5</li>
+            <li>Category6</li>
+          </ul>
+        </aside>
+        <div>
+          <p>[PROMOTIONAL IMAGES ROTATE HERE]</p>
+        </div>
+      </section>
+      <section id="section2">
+        <h2>Today`s Specials</h2>
+        <ul id="product">
+          <li><img src="#">
+            <a href="#"><br>Product1</br></a></li>
+          <li><img src="#">
+            <a href="#"><br>Product2</br></a></li>
+          <li><img src="#">
+            <a href="#"><br>Product3</br></a></li>
+          <li><img src="#">
+            <a href="#"><br>Product4</br></a></li>
+          <li><img src="#">
+            <a href="#"><br>Product5</br></a></li>
+          <li><img src="#">
+            <a href="#"><br>Product6</br></a></li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <div id="topbox">
+        <ul id="topbox1">
+          <li><h3>ABOUT US</h3></li>
+          <li>Company</li>
+          <li>News</li>
+          <li>Jobs</li>
+          <li>Policies</li>
+          <li>Contact</li>
+        </ul>
+        <ul id="topbox2">
+          <li><h3>SOCIAL</h3></li>
+          <li>Facebook</li>
+          <li>Twitter</li>
+          <li>Try our app</li>
+        </ul>
+        <ul id="topbox3">
+          <li><h3>SERVICE</h3></li>
+          <li>FAQ</li>
+          <li>Live support</li>
+          <li>Site map</li>
+        </ul>
+      </div>
+      <div id="bottombox">Copyright &copy; 2023. All Right Reserved.</div>
+    </footer>
+  </div>
+</body>
+</html>
