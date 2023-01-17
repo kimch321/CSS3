@@ -5,10 +5,65 @@
     <title>한국여행</title>
     <meta name="keyword" content="한국 여행, 일본 여행, 동남아, 미국, 하와이">
     <meta name="description" content="1등 여행 전문사이트">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
+<style>
+    #container {
+        width: 1200px;
+        margin: 0 auto;
+        border: 1px solid red;
+    }
+    header {
+        height:100px;
+        background: #cccccc;
+    }
+    /*헤더의 마진 제거*/
+    header h1 {
+        margin:0;
+    }
+    nav > ul {
+        float:right;
+        width: 800px;
+        background: black;
+        color:white;
+        margin-top:-52px;
+        margin-bottom:0;
+    }
+    nav > ul ul {display : none;}
+    nav > ul> li {
+        display: inline-block;
+        padding: 15px 65px;
+        font-weight: bold;
+    }
+    .clearfix2:after {
+        content: ""; display: block;
+        clear: both;
+    }
+    .rotateimg {}
+    .none {
+        display:none;
+    }
+    a:link {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        position:relative;
+    }
+    .rotateimg a span {
+        background: rgba(100, 100, 100, 0.5);
+        padding: 4px 12px;
+        font-size: 20px;
+        position: absolute;
+        top:0; left:480px;
+
+    }
+</style>
 <body>
+<div id="container">
     <header><h1>한국투어</h1></header>
-    <nav>
+    <nav class="clearfix2">
         <ul>
             <li>해외여행
                 <ul>
@@ -42,17 +97,17 @@
         </ul>
     </nav>
     <main>
-        <section>
+        <section class="rotateimg">
             <div>
                 <a href="#">
                     <img src="img/Slide/img1.jpg" alt="">
                     <span>국내여행의 대표, 한국투어</span></a>
 
-                <a href="#">
+                <a href="#" class="none">
                     <img src="img/Slide/img2.jpg" alt="">
                     <span>해외여행 예약, 한국투어</span></a>
 
-                <a href="#">
+                <a href="#" class="none">
                     <img src="img/Slide/img3.jpg" alt="">
                     <span>편리한 렌터카, 한국투어</span></a>
             </div>
@@ -109,5 +164,6 @@
             </select>
         </div>
     </footer>
+</div>
 </body>
 </html>

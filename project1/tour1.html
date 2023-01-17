@@ -11,7 +11,8 @@
     <style>
         /*전체외곽 자식요소 제어를 위해 포지션 relative.
          페이지의 너비 지정, 마진을 이용해 좌우 정렬 */
-        #container {position : relative;
+        #container {
+            position : relative;
             border: 1px solid red;
             width:1400px;
             margin: auto;
@@ -30,7 +31,7 @@
         }
         /*한국투어의 테두리 설정 및 위치 조절*/
         header h1 {
-            margin:0px;
+            margin:0;
             display:inline-block;
             position:relative;
             left:65px;
@@ -46,37 +47,113 @@
             list-style-type: none;
             color:white;
         }
+        nav {
+            width:720px;
+            position:absolute;
+            left:679px;
+            top: 46px;
+            background: #222222;
+            color:white;
+        }
+        .navbar {
+            display:flex;
+            justify-content: space-around;
+            padding:0;
+        }
+        .navbar ul {
+            display:none;
+        }
+        main {
+            display: grid;
+            grid-template-columns: repeat(3,33%);
+            grid-template-rows: 350px 200px;
+        }
+        .bigpic {
+            grid-column: 1 / -1;
+        }
+        .bigpic__1{
+            display: none;
+        }
+        .bigpic__3{
+            display: none;
+        }
+        .bigpic__2 {
+            background-image: url("img/Slide/img2.jpg");
+            display: inline-block;
+            width:1400px;
+            height:350px;
+            text-align: center;
+            margin: auto 0;
+            line-height:350px;
+        }
+        .gallary ul {
+            list-style: none;
+        }
+        .gallary__list li{
+            display: inline-block;
+        }
+        .smallpic{
+            background-image: url("img/Contents/shortcut.jpg");
+            display: inline-block;
+            text-align: center;
+            width:100%;
+            height:100%;
+        }
+        .flexbox {
+            display: flex;
+            justify-content: space-between ;
+            height:110px;
+            background: #e57373;
+        }
+        .flexbox .copy{
+            margin: auto 0;
+            margin-left: 50px;
+            font-size: 20px;
+        }
+        .flexbox ul {
+            list-style: none;
+        }
+        #link {
+            display: flex;
+            justify-content: space-evenly ;
+            width:220px;
+            padding:0;
+            margin: 10px auto;
+        }
+        #sitelist {
+            width: 210px;
+        }
     </style>
 </head>
 <body>
     <div id="container">
         <header><h1>한국투어</h1></header>
         <nav>
-            <ul>
-                <li>해외여행
-                    <ol>
+            <ul class="navbar">
+                <li class="navbar__list1">해외여행
+                    <ul>
                         <li>동남아/대만</li>
                         <li>중국/홍콩</li>
                         <li>유럽/두바이</li>
                         <li>미주/하와이</li>
-                    </ol>
+                    </ul>
                 </li>
-                <li>국내여행
-                    <ol>
+                <li class="navbar__list2">국내여행
+                    <ul>
                         <li>서울/경기</li>
                         <li>강원</li>
                         <li>충청</li>
                         <li>경상/전라</li>
-                    </ol>
+                    </ul>
                 </li>
-                <li>제주도
-                    <ol>
+                <li class="navbar__list3">제주도
+                    <ul>
                         <li>버스여행</li>
                         <li>자유여행</li>
                         <li>호텔/펜션</li>
-                    </ol>
+                    </ul>
                 </li>
-                <li>렌터카
+                <li class="navbar__list4">렌터카
                     <ul>
                         <li>국내 렌터카</li>
                         <li>국외 렌터카</li>
@@ -85,22 +162,19 @@
             </ul>
         </nav>
         <main>
-            <section>
-                <div>
-                    <a href="#">
-                        <img src="img/Slide/img1.jpg" alt="">
-                        <span>국내여행의 대표, 한국투어</span></a>
+            <section class="bigpic">
+                <a href="#" class="bigpic__1">
+                    <img src="img/Slide/img1.jpg" alt="">
+                    <span>국내여행의 대표, 한국투어</span></a>
 
-                    <a href="#">
-                        <img src="img/Slide/img2.jpg" alt="">
-                        <span>해외여행 예약, 한국투어</span></a>
+                <a href="#" class="bigpic__2">
+                    해외여행 예약, 한국투어</a>
 
-                    <a href="#">
-                        <img src="img/Slide/img3.jpg" alt="">
-                        <span>편리한 렌터카, 한국투어</span></a>
-                </div>
+                <a href="#" class="bigpic__3">
+                    <img src="img/Slide/img3.jpg" alt="">
+                    <span>편리한 렌터카, 한국투어</span></a>
             </section>
-            <section>
+            <section class="announcement">
                 <div>
                     <h4>공지사항</h4>
                     <table>
@@ -122,34 +196,38 @@
                         </tr>
                     </table>
                 </div>
+            </section>
+            <section class="gallary">
                 <div>
                     <h4>갤러리</h4>
-                    <ul>
+                    <ul class="gallary__list">
                         <li><img src="img/Contents/gallery1.jpg"></li>
                         <li><img src="img/Contents/gallery2.jpg"></li>
                         <li><img src="img/Contents/gallery3.jpg"></li>
                     </ul>
                 </div>
+            </section>
+            <section class="smallpic"></section>
                 <div>
-                    <a href="#">
-                        <img src="img/Contents/shortcut.jpg" alt="">
-                        <span>바로가기</span></a>
+                    <a href="#">바로가기</a>
                 </div>
             </section>
         </main>
         <footer>
-            <div>COPYRIGHT &COPY; by WEBDESIGN. ALL RIGHTS RESERVED</div>
-            <div>
-                <ul>
-                    <li><img src="img/Footer/sns1.jpg"></li>
-                    <li><img src="img/Footer/sns2.jpg"></li>
-                    <li><img src="img/Footer/sns3.jpg"></li>
-                </ul>
-                <select name="sitelist">
-                    <option>패밀리 사이트1</option>
-                    <option>패밀리 사이트2</option>
-                    <option>패밀리 사이트3</option>
-                </select>
+            <div class="flexbox">
+                <div class="copy">COPYRIGHT &COPY; by WEBDESIGN. ALL RIGHTS RESERVED</div>
+                <div class="link">
+                    <ul id="link">
+                        <li><img src="img/Footer/sns1.jpg"></li>
+                        <li><img src="img/Footer/sns2.jpg"></li>
+                        <li><img src="img/Footer/sns3.jpg"></li>
+                    </ul>
+                    <select name="sitelist" id="sitelist">
+                        <option>패밀리 사이트1</option>
+                        <option>패밀리 사이트2</option>
+                        <option>패밀리 사이트3</option>
+                    </select>
+                </div>
             </div>
         </footer>
     </div>
