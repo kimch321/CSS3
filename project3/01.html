@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <title>http://www.yaml.de/demos/flexible-grid.html</title>
+    <style>
+      body {
+        font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
+        color : #444444;
+      }
+      h3 {
+        font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+        font-size: 24px;
+        line-height: 0.875;
+        color: #161e21;
+      }
+      h4 {
+        margin: 0 0 21px 0;
+        font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-size: 21px;
+        color: #161e21;
+      }
+      h6 {
+        font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+        margin: 0 0 21px 0;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1.5;
+        color: #161e21;
+      }
+      p {
+        line-height: 1.5;
+      }
+      header {
+        width: 100vw;
+        height: 105px;
+        background: #444444;
+      }
+      .ym-wrapper {
+        margin: 0 auto;
+        max-width: 1120px;
+      }
+      .ym-wbox {
+        box-sizing: border-box;
+        padding: 21px;
+        width: 100%;
+      }
+      header h1 {
+        margin: 0 0 21px 0;
+        padding: 0;
+        box-sizing: border-box;
+        height: 42px;
+        font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+        font-weight: 750;
+        color: #ffffff;
+        font-size: 48px;
+        line-height: 0.875;
+      }
+      #nav {
+        background: #222222;
+      }
+      .ym-hlist {
+        height: 42px;
+        display: flex;
+        margin: 0 auto;
+        justify-content: space-between;
+      }
+      .ym-hlist ul {
+        margin: 0;
+        padding: 7px 21px;
+        width: 293px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 100;
+      }
+      .ym-hlist .active {
+        box-sizing: border-box;
+        width: 56px;
+        height: 28px;
+        background: #656565;
+        border-radius: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+      }
+      .ym-hlist li {
+        width: 44px;
+        height: 28px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+      }
+      .ym-hlist li a {
+        display: inline-block;
+        padding: 0 7px;
+        text-decoration-line: none;
+        color: #cccccc;
+      }
+      .ym-hlist li a:hover {
+        width: 44px;
+        height: 28px;
+        background: #595959;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+      }
+      /*적용 실패 지점*/
+      .ym-hlist li a:visited {
+        width: 44px;
+        height: 28px;
+        background: #595959;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+      }
+      .ym-searchform {
+        width: 282px;
+        padding: 7px 21px;
+        box-sizing: border-box;
+      }
+      .ym-searchfield {
+        width: 177px;
+        height: 25px;
+        box-sizing: border-box;
+        line-height: 1;
+        border: solid 1px rgba(255, 255, 255, 0.1);
+        background: #fff;
+        padding: 0.25em;
+        outline: none;
+      }
+      .ym-searchbutton {
+        width: 62px;
+        height: 27px;
+        background: #4e4e4e;
+        border-radius: 2px;
+        color: #ffffff;
+        text-align: center;
+      }
+      .boxinfo {
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        box-shadow: inset 1px 1px 3px rgb(52 50 50 / 20%);
+        padding: 20px;
+        border-radius: 0.3em;
+        background: #f4f4f4;
+        color: rgba(0, 0, 0, 0.8);
+        margin: 0 0 21px 0;
+      }
+      .infowrapper {
+        display: flex;
+      }
+      .info1 {
+        display: flex;
+      }
+      /*인포버튼은 나중에 꾸미기로 한다.*/
+      .infobutton {
+      }
+      /*여기서부터 mainBox*/
+      /*main1과 main2를 가로배치*/
+      .mainBox {
+        display:flex;
+      }
+      /*main1과 main2의 넓이를 나눈다.*/
+      .main1 {
+        width: 66.666%;
+      }
+      .main2 {
+        width: 33.333%;
+      }
+      /*main1Top과 main1Bottom을 위아래로 배치한다, 오른쪽에 border.*/
+      .main1Wrapper {
+        border-right: 1px solid black;
+        display: flex;
+        flex-direction: column;
+      }
+      /*main2Bottom안의 Left와 Right를 좌우배치한다.*/
+      .main1Bottom {
+        display: flex;
+      }
+      /*main1Top에 padding-right:21px을 준다.*/
+      .main1Top {
+        padding-right: 21px;
+      }
+      /*main1Top의 사진을 float left로 정렬한다.
+      테두리와, 마진을 준다.*/
+      .main1Top img {
+        float:left;
+        border: 2px solid black;
+        margin:0 14px 21px 0;
+      }
+      /*main1Bottom의 오른쪽에 패딩 21px;*/
+      .main1Bottom {
+        padding-right: 21px;
+      }
+      .firstP {
+        margin-top:0;
+      }
+      /*leftBox 오른쪽에 패딩*/
+      .leftBox {
+        padding-right : 21px;
+      }
+      /*rightBox 왼쪽에 패딩*/
+      .rightBox {
+        padding-left:21px;
+      }
+      /*main2Wrapper의 왼쪽에 패딩 21px*/
+      .main2Wrapper {
+        padding-left: 21px;
+      }
+      /*aside의 첫번째 h6의 위쪽 마진 제거*/
+      .firstH3 {
+        margin-top:0;
+      }
+      footer {
+        background: #eee;
+        height: 63px;
+      }
+      footer p {
+        margin:0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="ym-wrapper">
+        <div class="ym-wbox">
+          <h1>Project Name</h1>
+        </div>
+      </div>
+    </header>
+    <nav id="nav">
+      <div class="ym-wrapper">
+        <div class="ym-hlist">
+          <ul>
+            <li class="active"><strong>Active</strong></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+          </ul>
+          <form class="ym-searchform">
+            <input
+              class="ym-searchfield"
+              type="search"
+              placeholder="Search..."
+            /><input class="ym-searchbutton" type="submit" value="Search" />
+          </form>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <div class="ym-wrapper">
+        <div class="ym-wbox">
+          <section class="boxinfo">
+            <div class="infobox1">
+              <div class="infowrapper">
+                <article class="info1">
+                  <div class="info1left">
+                    <h4>Here's a box</h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                      ullamco laboris nisi ut aliquip.
+                    </p>
+                    <p>
+                      <a class="infobutton" href="#"> Read More </a>
+                    </p>
+                  </div>
+                  <div class="info1right">
+                    <h4>And another box</h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                      ullamco laboris nisi ut aliquip.
+                    </p>
+                    <p>
+                      <a class="infobutton" href="#"> Read More </a>
+                    </p>
+                  </div>
+                </article>
+                <article class="info2">
+                  <div class="info2center">
+                    <h4>This box is aligned with the sidebar</h4>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                      ullamco laboris nisi ut aliquip.
+                    </p>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <article class="infobox2"></article>
+          </section>
+          <section class="mainBox">
+            <article class="main1">
+              <div class="main1Wrapper">
+                <div class="main1Top">
+                  <img
+                    src="http://dummyimage.com/240x160/cccccc/fff.png"
+                    alt="dummy"
+                  />
+                  <p class="firstP">
+                    Lorem ipsum dolor sit amet,<em>consectetuer adipiscing elit</em>.
+                    Nunc congue ipsum vestibulum libero. Aenean vitae justo.
+                    Nam eget tellus. Etiam convallis, est eu lobortis mattis,
+                    lectus tellus tempus felis, a ultricies erat ipsum at metus.
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                    Morbi et risus. Aliquam nisl. Nulla facilisi. Cras accumsan
+                    vestibulum ante. Vestibulum sed tortor. Praesent SMALL CAPS
+                    tempus fringilla elit. Ut elit diam, sagittis in, nonummy in,
+                    gravida non, nunc. Ut orci. Class aptent taciti sociosqu ad
+                    litora torquent per conubia nostra, per inceptos hymenaeos.
+                    Nam egestas, orci eu imperdiet malesuada, nisl purus fringilla
+                    odio, quis commodo est orci vitae justo. Aliquam placerat odio
+                    tincidunt nulla. Cras in libero. Aenean rutrum, magna non
+                    tristique posuere, erat odio eleifend nisl, non convallis est
+                    tortor blandit ligula. Nulla id augue.
+                  </p>
+                  <p>
+                    Nullam mattis, odio ut tempus facilisis, metus nisl facilisis
+                    metus, auctor consectetuer felis ligula nec mauris. Vestibulum
+                    odio erat, fermentum at, commodo vitae, ultrices et, urna.
+                    Mauris vulputate, mi pulvinar sagittis condimentum, sem nulla
+                    aliquam velit, sed imperdiet mi purus eu magna. Nulla varius
+                    metus ut eros. Aenean aliquet magna eget orci. Class aptent
+                    taciti sociosqu ad litora.
+                  </p>
+                  <p>
+                    Vivamus euismod. Cum sociis natoque penatibus et magnis dis
+                    parturient montes, nascetur ridiculus mus. Suspendisse vel
+                    nibh ut turpis dictum sagittis. Aliquam vel velit a elit
+                    auctor sollicitudin. Nam vel dui vel neque lacinia pretium.
+                    Quisque nunc erat, venenatis id, volutpat ut, scelerisque sed,
+                    diam. Mauris ante. Pellentesque habitant morbi tristique
+                    senectus et netus et malesuada fames ac turpis egestas. Donec
+                    mattis. Morbi dignissim sollicitudin libero. Nulla lorem.
+                  </p>
+                  <blockquote>
+                    <p>
+                      Integer cursus ornare mauris. Praesent nisl arcu, imperdiet
+                      eu, ornare id, scelerisque ut, nunc. Praesent sagittis erat
+                      sed velit tempus imperdiet. Ut tristique, ante in interdum
+                      hendrerit, erat enim faucibus felis, quis rutrum mauris
+                      lorem quis sem. Vestibulum ligula nisi, mattis nec, posuere
+                      et, blandit eu, ligula. Nam suscipit placerat odio. Class
+                      aptent taciti sociosqu ad litora torquent per conubia
+                      nostra, per inceptos hymenaeos. Pellentesque tortor libero,
+                      venenatis vitae, rhoncus eu, placerat ut, mi. Nulla nulla.
+                    </p>
+                  </blockquote>
+                  <p>
+                    Maecenas vel metus quis magna pharetra fermentum.<em
+                      >Integer sit amet tortor</em
+                    >. Maecenas porttitor, pede sed gravida auctor, nulla augue
+                    aliquet elit, at pretium urna orci ut metus. Aliquam in dolor.
+                    Vestibulum ante ipsum primis in faucibus orci luctus et
+                    ultrices posuere cubilia Curae; Sed aliquam, tellus id ornare
+                    posuere, quam nunc accumsan turpis, at convallis tellus orci
+                    et nisl. Phasellus congue neque a lorem.
+                  </p>
+                </div>
+                <div class="main1Bottom">
+                  <div class="bottomLeft">
+                    <div class="leftBox">
+                      <h6>This is a nested column</h6>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex
+                        ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="bottomRight">
+                    <div class="rightBox">
+                      <h6>This is another nested column</h6>
+                      <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco laboris nisi ut aliquip ex
+                        ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <aside class="main2">
+              <div class="main2Wrapper">
+                <div class="main2Top">
+                  <div class="topBox">
+                    <h3 class="firstH3">A Simple Sidebar</h3>
+                    <p>
+                      Vestibulum ante ipsum primis in faucibus orci luctus et
+                      ultrices posuere cubilia Curae; Cras ornare mattis nunc.
+                      Mauris venenatis, pede sed aliquet vehicula, lectus tellus
+                      pulvinar neque, non cursus sem nisi vel augue.
+                    </p>
+                    <p>
+                      Mauris a lectus. Aliquam erat volutpat. Phasellus ultrices
+                      mi a sapien. Nunc rutrum egestas lorem. Duis ac sem
+                      sagittis elit tincidunt gravida. Mauris a lectus. Aliquam
+                      erat volutpat. Phasellus ultrices mi a sapien. Nunc rutrum
+                      egestas lorem. Duis ac sem sagittis elit tincidunt
+                      gravida.
+                    </p>
+                    <p class="boxinfo">
+                      Vestibulum ante ipsum primis in faucibus orci luctus et
+                      ultrices posuere cubilia Curae; Cras ornare mattis nunc.
+                      Mauris venenatis, pede sed aliquet vehicula, lectus tellus
+                      pulvinar neque, non cursus sem nisi vel augue.
+                    </p>
+                  </div>
+                </div>
+                <div class="main2Bottom">
+                  <div class="bottomBox">
+                    <h3>Incremental leading</h3>
+                    <p>
+                      Vestibulum ante ipsum primis in faucibus orci luctus
+                      vestibulum ante ipsum primis in faucibus orci luctus et
+                      ultrices posuere cubilia Curae; Cras ornare mattis nunc.
+                      Mauris venenatis, pede sed aliquet vehicula, lectus tellus
+                      pulvinar neque, non cursus sem nisi vel augue. sed aliquet
+                      vehicula, lectus tellus.
+                    </p>
+                    <p>
+                      Vestibulum ante ipsum primis in faucibus orci luctus et
+                      ultrices posuere cubilia Curae; Cras ornare mattis nunc.
+                      Mauris venenatis, pede sed aliquet vehicula, lectus tellus
+                      pulvinar neque, non cursus sem nisi vel augue. sed aliquet
+                      vehicula, lectus tellus pulvinar neque, non cursus sem
+                      nisi vel augue. ipsum primis in faucibus orci luctus et
+                      ultrices posuere cubilia Curae; Cras ornare mattis nunc.
+                      Mauris venenatis, pede sed aliquet vehicula, lectus tellus
+                      pulvinar neque, non cursus sem nisi vel augue. sed aliquet
+                      vehicula, lectus tellus pulvinar neque, non cursus sem
+                      nisi vel augue
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="ym-wrapper">
+        <div class="ym-wbox">
+          <p>
+            &copy; Company 2012 - Layout based on
+            <a href="https://www.yaml.de">YAML</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
